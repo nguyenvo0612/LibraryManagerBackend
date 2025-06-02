@@ -18,14 +18,14 @@ public class BookImageService {
     @Autowired
     private BookRepository bookRepository;
 
-    public void addBookImage(BookImageDTO bookImageDTO) {
+    private void addBookImage(BookImageDTO bookImageDTO) {
         BookImage bookImage = new BookImage();
         bookImage.setBook(bookImageDTO.getBook());
         bookImage.setImageUrl(bookImageDTO.getImageUrl());
         bookImageRepository.save(bookImage);
     }
 
-    public List<BookImage> getBookImgByBookId(Integer bookId) {
+    private List<BookImage> getBookImgByBookId(Integer bookId) {
         Book book = bookRepository.findBooksByBookId(bookId);
         return bookImageRepository.findBookImageByBook(book);
     }

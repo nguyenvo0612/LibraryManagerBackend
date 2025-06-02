@@ -11,7 +11,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void addUser(UserDTO userDTO) {
+    private void addUser(UserDTO userDTO) {
         User user = new User();
         user.setRole(userDTO.getRole());
         user.setUsername(userDTO.getUsername());

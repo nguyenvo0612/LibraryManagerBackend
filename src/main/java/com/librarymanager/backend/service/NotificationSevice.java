@@ -11,17 +11,17 @@ public class NotificationSevice {
     @Autowired
     private NotificationRepository notificationRepository;
 
-    public void addNotification(NotificationDTO notificationDTO) {
+    private void addNotification(NotificationDTO notificationDTO) {
         Notification notification = new Notification();
         notification.setMessage(notificationDTO.getMessage());
         notificationRepository.save(notification);
     }
 
-    public void deleteNotificationById(Integer notificationId) {
+    private void deleteNotificationById(Integer notificationId) {
         notificationRepository.deleteById(notificationId);
     }
 
-    public Notification findNotificationById(Integer notificationId) {
+    private Notification findNotificationById(Integer notificationId) {
         return notificationRepository.getNotificationsByNotificationId(notificationId);
     }
 }

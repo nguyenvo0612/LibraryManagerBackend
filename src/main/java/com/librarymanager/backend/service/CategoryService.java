@@ -13,17 +13,17 @@ public class CategoryService {
     private CategoryRepository categoryRepository;
 
 
-    public void addCategory(String categoryName) {
+    private void addCategory(String categoryName) {
         Category category = new Category();
         category.setName(categoryName);
         categoryRepository.save(category);
     }
 
-    public void deleteCategoryById(Integer categoryId) {
+    private void deleteCategoryById(Integer categoryId) {
         categoryRepository.deleteById(categoryId);
     }
 
-    public List<Category> getAllCategories() {
+    private List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
 }

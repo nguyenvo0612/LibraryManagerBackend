@@ -13,7 +13,7 @@ public class BookService {
     private BookRepository bookRepository;
     private BookMapper bookMapper;
 
-    public void addBook(BookDTO bookDTO) {
+    private void addBook(BookDTO bookDTO) {
         Book book = new Book();
         book = bookMapper.toEntity(bookDTO);
 //        book.setAuthor(bookDTO.getAuthor());
@@ -26,15 +26,15 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public Book findBookById(Integer bookId) {
+    private Book findBookById(Integer bookId) {
         return bookRepository.findBooksByBookId(bookId);
     }
 
-    public void deleteBookById(Integer bookId) {
+    private void deleteBookById(Integer bookId) {
         bookRepository.deleteById(bookId);
     }
 
-    public void updateBook(Integer bookId, BookDTO bookDTO) {
+    private void updateBook(Integer bookId, BookDTO bookDTO) {
         Book book = bookRepository.findBooksByBookId(bookId);
 //        book.setAuthor(bookDTO.getAuthor());
 //        book.setPrice(bookDTO.getPrice());
